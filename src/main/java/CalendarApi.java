@@ -6,19 +6,21 @@ package main.java;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import java.io.IOException;
 
 
 @Path("/")
 public class CalendarApi {
-    Quickstart quickstart = new Quickstart();
+    Calendar calendar = new Calendar();
 
+    /**
+     * @return json containing the calendar events between now and 24 hours
+     * @throws Exception
+     */
     @Path("/calendar")
     @GET
     @Produces("application/json")
-    public String test() throws Exception {
-        return quickstart.calendar();
+    public String getCalendar() throws Exception {
+        return calendar.calendar();
     }
 }
