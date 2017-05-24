@@ -3,7 +3,7 @@
 This api is made for project Cluster & SmartMirror, it is designed to run on a raspberry pi in a docker container. 
 the application uses a tomcat server in order to work, the default port is 8080. 
 make sure to setup a tomcat server if you havent already. 
-this is a RESTfull api which will return calendar items in JSON format including the discription, startTime and the endTime of events
+this is a RESTfull api which will return calendar items in JSON format including the discription, starttime and the endtime of events
 this api will only return events of the current day + 24 hours.
 
 # Setup tomcat server
