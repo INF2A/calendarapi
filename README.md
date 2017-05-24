@@ -3,7 +3,8 @@
 This api is made for project Cluster & SmartMirror, it is designed to run on a raspberry pi in a docker container. 
 the application uses a tomcat server in order to work, the default port is 8080. 
 make sure to setup a tomcat server if you havent already. 
-this is a RESTfull api which will return news items in JSON format including the title, discription, publication date and a link to a image.
+this is a RESTfull api which will return calendar items in JSON format including the discription, startTime and the endTime of events
+this api will only return events of the current day + 24 hours.
 
 # Setup tomcat server
 https://www.jetbrains.com/help/idea/2017.1/creating-and-running-your-first-web-application.html
@@ -11,7 +12,7 @@ https://www.jetbrains.com/help/idea/2017.1/creating-and-running-your-first-web-a
 # Examples
 
 do the following to make a api call when the application is running
-<b><strong>NOTE: first time you run this application, you should see a google login screen requesting permission for "Cluster & SmartMirror Calendar API". log in with your google account and accept this.</strong></b>
+<strong>NOTE: first time you run this application, you should see a google login screen requesting permission for "Cluster & SmartMirror Calendar API". log in with your google account and accept this.</strong><br>
 <br>
 <b>connect to the application(should start when you run the application):</b><br>
 {ip_cluster}:{port_api}/<br>
