@@ -95,7 +95,6 @@ public class Calendar {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.now();
         String date = dtf.format(localDate);
-        System.out.println(date); //2016/11/16
         // Build a new authorized API client service.
         // Note: Do not confuse this class with the
         //   com.google.api.services.calendar.model.Calendar class.
@@ -107,12 +106,10 @@ public class Calendar {
         DateTime tomorrow = new DateTime(System.currentTimeMillis() + (1000 * 60 * 60 * 24));
 
         CalendarList calendarList = service.calendarList().list().execute();
-        System.out.println(calendarList.getItems());
         List<CalendarListEntry> calendarListEntries = calendarList.getItems();
         List<String> calendarIds = new ArrayList<>();
         for (CalendarListEntry event : calendarListEntries) {
             calendarIds.add(event.getId());
-            System.out.println("calendar id" + event.getId());
         }
 
         for (String calendarID : calendarIds) {
@@ -126,9 +123,7 @@ public class Calendar {
             List<Event> items = events.getItems();
 
             if (items.size() == 0) {
-                System.out.println("No upcoming events found.");
             } else {
-                System.out.println("Upcoming events");
                 for (Event event : items) {
                     DateTime start = event.getStart().getDateTime();
                     DateTime end = event.getEnd().getDateTime();
@@ -144,12 +139,9 @@ public class Calendar {
 
         }
         json +="]\n";
-        System.out.println("json test" + json);
         json = json.substring(0, json.lastIndexOf(","));
         json +="]\n";
         json +="}\n";
-
-        System.out.println("json test" + json);
         return json;
     }
 
