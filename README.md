@@ -11,7 +11,8 @@ https://www.jetbrains.com/help/idea/2017.1/creating-and-running-your-first-web-a
 # Examples
 
 do the following to make a api call when the application is running
-<b><strong>NOTE: first time you run this application, you should see a google login screen requesting permission for "Cluster & SmartMirror Calendar API". log in with your google account and accept this.
+<b><strong>NOTE: first time you run this application, you should see a google login screen requesting permission for "Cluster & SmartMirror Calendar API". log in with your google account and accept this.</strong></b>
+<br>
 <b>connect to the application(should start when you run the application):</b><br>
 {ip_cluster}:{port_api}/<br>
 http://localhost:8080/<br>
