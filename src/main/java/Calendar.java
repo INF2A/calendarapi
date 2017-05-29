@@ -26,8 +26,8 @@ public class Calendar {
             "Google Calendar API Java Calendar";
 
     /** Directory to store user credentials for this application. */
-    private static final java.io.File DATA_STORE_DIR = new java.io.File(
-            System.getProperty("user.home"), ".credentials/calendar-java-calendar");
+    private static final java.io.File DATA_STORE_DIR = new java.io.File("credentials/calendar-java-calendar");
+    private java.io.File test = new java.io.File("","");
 
     /** Global instance of the {@link FileDataStoreFactory}. */
     private static FileDataStoreFactory DATA_STORE_FACTORY;
