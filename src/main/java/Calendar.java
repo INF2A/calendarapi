@@ -26,7 +26,7 @@ public class Calendar {
             "Google Calendar API Java Calendar";
 
     /** Directory to store user credentials for this application. */
-    private static final java.io.File DATA_STORE_DIR = new java.io.File("credentials/calendar-java-calendar");
+    private static final java.io.File DATA_STORE_DIR = new java.io.File("/tomcat/bin/credentials/calendar-java-calendar");
     private java.io.File test = new java.io.File("","");
 
     /** Global instance of the {@link FileDataStoreFactory}. */
@@ -73,7 +73,16 @@ public class Calendar {
                 Collections.singleton(CalendarScopes.CALENDAR)).setDataStoreFactory(DATA_STORE_FACTORY)
                 .build();
         // authorize
-        return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
+        System.out.println("promt Google log in screen");
+        String url = flow.getAuthorizationServerEncodedUrl();
+        System.out.println("test:" + url);
+        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8090).build();
+        System.out.println("Hostname: "+receiver.getHost());
+        //com.google.api.client.auth.oauth2.Credential app = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
+        //System.out.println(AuthorizationCodeInstalledApp(flow, receiver).authorize("user"));
+        //System.out.println("url: " + app.getTokenServerEncodedUrl());
+
+        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
     /**
