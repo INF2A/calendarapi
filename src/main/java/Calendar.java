@@ -100,6 +100,7 @@ public class Calendar {
     }
 
     public String calendar() throws Exception {
+
         String json = "{\"calendar\":[\n";
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.now();
@@ -132,6 +133,7 @@ public class Calendar {
             List<Event> items = events.getItems();
 
             if (items.size() == 0) {
+                return null;
             } else {
                 for (Event event : items) {
                     DateTime start = event.getStart().getDateTime();
@@ -143,14 +145,13 @@ public class Calendar {
                             "\"starttime\":" + "\"" + start + "\",\n" +
                             "\"endtime\":" + "\"" + end + "\"\n" +"},\n";
                 }
+                json +="]\n";
+                json = json.substring(0, json.lastIndexOf(","));
+                json +="]\n";
+                json +="}\n";
             }
-
-
         }
-        json +="]\n";
-        json = json.substring(0, json.lastIndexOf(","));
-        json +="]\n";
-        json +="}\n";
+
         return json;
     }
 
